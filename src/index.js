@@ -7,7 +7,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import App from './components/App/App'
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(rootReducer, composeWithDevTools);
+const store = createStore(rootReducer, composeWithDevTools());
 
 const application = (
     <Provider store={store}>
