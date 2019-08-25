@@ -26,6 +26,94 @@ export const fetchPalettes = async () => {
     }
 }
 
-export const postProject = async () => {
-    
+export const postProject = async (project) => {
+    try {
+        const url = `http://localhost:3000/api/v1/projects`
+        const options = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(project)
+        }
+
+        const response = await fetch(url, options) 
+        const addedProject = response.json();
+
+        return addedProject;
+    } catch ({ message }) {
+        throw new Error(message)
+    }
 }
+
+export const postPalette = async (palette) => {
+    try {
+        const url = `http://localhost:3000/api/v1/palettes`
+        const options = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(palette)
+        }
+        const response = await fetch(url, options)
+        const addedPalette = response.json()
+
+        return addedPalette;
+    } catch ({ message }) {
+        throw new Error(message)
+    }
+}
+
+export const patchProject = async (project) => {
+    try {
+        const url = `http://localhost:3000/api/v1/projects/${project.id}`
+        const options = {
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(project)
+        }
+
+        const response = await fetch(url, options)
+        const editedProject = response.json()
+
+        return editedProject;
+    } catch ({ message }) {
+        throw new Error(message)
+    }
+}
+
+export const patchPalette = async (palette) => {
+    try {
+        const url = `http://localhost:3000/api/v1/palettes/${palette.id}`
+        const options = {
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(palette)
+        }
+
+        const response = await fetch(url, options)
+        const editedPalette = response.json();
+
+        return editedPalette;
+    } catch ({ message }) {
+        throw new Error(message)
+    }
+}
+
+export const deleteProject = async (project) => {
+    try {
+        const url = `http://localhost:3000/api/v1/projects/${project.id}`
+        const response = await fetch(url)
+
+        return response;
+    } catch ({ message }) {
+        throw new Error(message)
+    }
+}
+
+export const deletePalette = async (palette) => {
+    try {
+        const url = `http://localhost:3000/api/v1/palettes/${palette.id}`
+
+    } catch ({ message }) {
+        throw new Error(message)
+    }
+}
+
