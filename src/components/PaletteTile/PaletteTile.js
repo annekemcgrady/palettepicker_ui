@@ -1,9 +1,11 @@
 import React from 'react';
 import './PaletteTile.scss'
 
-const PaletteTile = () => {
+const PaletteTile = ({ isLocked, hexCode }) => {
     return (
-        <article>
+        <article className='palette-tile'>
+            <p>{hexCode}</p>
+
 
         </article>
     )
