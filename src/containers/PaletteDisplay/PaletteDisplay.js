@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux'
 import PaletteTile from '../../components/PaletteTile/PaletteTile.js'
 import './PaletteDisplay.scss';
-var ColorScheme = require('color-scheme');
+import ColorScheme from 'color-scheme'
 
 export const PaletteDisplay = ({ currentColors }) => {
-var scheme = new ColorScheme;
+let scheme = new ColorScheme;
 scheme.from_hue(21)         // Start the scheme 
       .scheme('contrast')     // Use the 'triade' scheme, that is, colors
                             // selected from 3 points equidistant around
