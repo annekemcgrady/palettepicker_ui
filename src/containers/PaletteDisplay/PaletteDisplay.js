@@ -12,7 +12,7 @@ export class PaletteDisplay extends Component {
 
 generateColors =() => {
 let scheme = new ColorScheme;
-scheme.from_hue(21)         // Start the scheme 
+    scheme.from_hue(21)         // Start the scheme 
       .scheme('contrast')     // Use the 'triade' scheme, that is, colors
                             // selected from 3 points equidistant around
                             // the color wheel.
