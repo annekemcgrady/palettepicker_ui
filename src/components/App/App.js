@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+import PaletteDisplay from '../../containers/PaletteDisplay/PaletteDisplay';
 
 const App = () => {
   return (

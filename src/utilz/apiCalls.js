@@ -1,6 +1,6 @@
 export const fetchProjects = async () => {
     try {
-        const url = `http://localhost:3001/api/v1/projects`
+        const url = `http://localhost:3000/api/v1/projects`
         const response = await fetch(url);
         if(!response.ok) {
             throw new Error('Projects failed to fetch');
@@ -14,7 +14,7 @@ export const fetchProjects = async () => {
 
 export const fetchPalettes = async () => {
     try {
-        const url = `http://localhost:3001/api/v1/palettes`
+        const url = `http://localhost:3000/api/v1/palettes`
         const response = await fetch(url)
         if(!response.ok) {
             throw new Error('Palettes failed to fetch')
@@ -28,7 +28,7 @@ export const fetchPalettes = async () => {
 
 export const postProject = async (project) => {
     try {
-        const url = `http://localhost:3001/api/v1/projects`
+        const url = `http://localhost:3000/api/v1/projects`
         const options = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -46,7 +46,7 @@ export const postProject = async (project) => {
 
 export const postPalette = async (palette) => {
     try {
-        const url = `http://localhost:3001/api/v1/palettes`
+        const url = `http://localhost:3000/api/v1/palettes`
         const options = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -63,7 +63,7 @@ export const postPalette = async (palette) => {
 
 export const patchProject = async (project) => {
     try {
-        const url = `http://localhost:3001/api/v1/projects/${project.id}`
+        const url = `http://localhost:3000/api/v1/projects/${project.id}`
         const options = {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
@@ -81,7 +81,7 @@ export const patchProject = async (project) => {
 
 export const patchPalette = async (palette) => {
     try {
-        const url = `http://localhost:3001/api/v1/palettes/${palette.id}`
+        const url = `http://localhost:3000/api/v1/palettes/${palette.id}`
         const options = {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
@@ -99,7 +99,7 @@ export const patchPalette = async (palette) => {
 
 export const deleteProject = async (project) => {
     try {
-        const url = `http://localhost:3001/api/v1/projects/${project.id}`
+        const url = `http://localhost:3000/api/v1/projects/${project.id}`
         const response = await fetch(url)
 
         return response;
@@ -110,7 +110,7 @@ export const deleteProject = async (project) => {
 
 export const deletePalette = async (palette) => {
     try {
-        const url = `http://localhost:3001/api/v1/palettes/${palette.id}`
+        const url = `http://localhost:3000/api/v1/palettes/${palette.id}`
 
     } catch ({ message }) {
         throw new Error(message)
