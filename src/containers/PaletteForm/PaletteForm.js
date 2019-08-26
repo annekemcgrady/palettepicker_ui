@@ -19,7 +19,14 @@ class PaletteForm extends React.Component {
     
     handleSubmit = e => {
         e.preventDefault();
-        const newPalette = {...this.state}
+        const newPalette = {...this.state.name, 
+            color_one: this.props.colors[0], 
+            color_two: this.props.colors[1], 
+            color_three: this.props.colors[2], 
+            color_four: this.props.colors[3], 
+            color_five: this.props.colors[4] 
+        }
+        console.log(newPalette)
         postPalette(newPalette)
         .then(palette => this.props.addPalette(palette))
         .catch(error => this.props.hasErrored(error))
@@ -37,11 +44,13 @@ class PaletteForm extends React.Component {
                 <label htmlFor='name'>Ready to save this palette?</label>
                 <select name='project' value={this.state.project} onChange={this.handleChange}>
                     <option value=''>Select a Project</option>
+                    <option value='project-one'>Project 1</option>
                 </select>
                 <input 
                     type='text' 
                     name='name'
                     autoComplete='off' 
+
                     value={this.state.name} 
                     placeholder='Name it!' 
                     onChange={this.handleChange}/>
@@ -53,6 +62,8 @@ class PaletteForm extends React.Component {
 
 const mapStateToProps = state => ({
     palettes: state.palettes,
+    colors: state.colors,
+    projects: state.projects,
     error: state.error
 })
 

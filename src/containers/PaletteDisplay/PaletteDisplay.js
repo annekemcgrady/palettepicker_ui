@@ -36,7 +36,7 @@ render = () => {
             key={Date.now()}
             isLocked={false}
             hexCode={color.hexCode}
-            style={{backgroundColor: color}}
+            // style={{backgroundColor: color}}
         />
         )
     })

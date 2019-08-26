@@ -1,10 +1,10 @@
-export const projectsReducer = (state = [], action) => {
-    switch(action.type) {
+export const projectsReducer = (state = [], {type, project, projects, id}) => {
+    switch(type) {
         case 'GET_PROJECTS':
-            return action.projects;
+            return projects;
         
         case 'ADD_PROJECT':
-            return [...state, action.project]
+            return [...state, {...project, id}]
 
         default:
             return state;
