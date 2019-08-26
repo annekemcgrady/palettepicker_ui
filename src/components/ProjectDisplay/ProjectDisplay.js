@@ -16,7 +16,6 @@ class ProjectDisplay extends React.Component {
     }
 
     render() {  
-        console.log(this.props.projects)
         const tiles = this.props.projects.map(project => {
             return (
                 <ProjectTile 
