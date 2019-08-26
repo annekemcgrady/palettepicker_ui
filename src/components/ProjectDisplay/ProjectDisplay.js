@@ -1,4 +1,5 @@
 import React from 'react';
+import './ProjectDisplay.scss'
 import ProjectForm from '../../containers/ProjectForm/ProjectForm';
 import ProjectTile from '../ProjectTile/ProjectTile';
 import { fetchProjects } from '../../utilz/apiCalls';
@@ -25,10 +26,10 @@ class ProjectDisplay extends React.Component {
             })
             return (
                 <section className='project-display'>
-            <ProjectForm />
-            {tiles}
-        </section>
-    )
+                    <ProjectForm />
+                        {tiles}
+                </section>
+            )
   }
 }
 

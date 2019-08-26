@@ -1,7 +1,10 @@
-export const colorsReducer = (state = [], action) => {
-    switch(action.type) {
-        case 'GET_COLORS':
-            return action.colors;
+export const colorsReducer = (state = [], {type, color}) => {
+    switch(type) {
+        case 'LOCK_COLOR':
+            return [...state, {hexCode: color, isLocked: true}]
+
+        case 'CLEAR_COLORS':
+            return state = [];
 
         default:
             return state;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getColors } from "../../actions";
+import { lockColor } from "../../actions";
 import PaletteTile from "../../components/PaletteTile/PaletteTile.js";
 import PaletteForm from '../PaletteForm/PaletteForm';
 import "./PaletteDisplay.scss";
@@ -16,7 +16,7 @@ export class PaletteDisplay extends Component {
         .variation("hard");
 
         var colors = scheme.colors().splice(0, 5);
-        // this.setState({colors})
+        this.setState({colors})
         this.props.setCurrentColors(colors);
     };
 
@@ -49,7 +49,7 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-    setCurrentColors: newColors => dispatch(getColors(newColors))
+    lockColor: color => dispatch(lockColor(color))
 });
 
 
