@@ -6,6 +6,7 @@ import { fetchProjects } from '../../utilz/apiCalls';
 import { getProjects, hasErrored, loadComplete } from '../../actions';
 import { connect } from 'react-redux';
 
+
 class ProjectDisplay extends React.Component {
     componentDidMount() {
         fetchProjects()
