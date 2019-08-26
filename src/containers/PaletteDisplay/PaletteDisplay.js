@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getColors } from '../../actions';
 import PaletteTile from '../../components/PaletteTile/PaletteTile.js';
+import PaletteForm from '../PaletteForm/PaletteForm';
 import './PaletteDisplay.scss';
 import ColorScheme from 'color-scheme';
 
@@ -41,12 +42,13 @@ render = () => {
     })
 
     return (
-        <>
+        <main className='main'>
         <section className='palette-display'>
             {displaySwatches }
         </section>
         <button type='button' className='generate-new-palette' onClick={this.generateColors}>Generate New Palette</button>
-        </>
+        <PaletteForm />
+        </main>
     )
 }
     

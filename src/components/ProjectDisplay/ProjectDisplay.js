@@ -1,9 +1,10 @@
 import React from 'react';
+import ProjectForm from '../../containers/ProjectForm/ProjectForm';
 
 const ProjectDisplay = () => {
     return (
-        <section>
-
+        <section className='project-display'>
+            <ProjectForm />
         </section>
     )
 }
