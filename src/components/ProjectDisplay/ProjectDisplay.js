@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProjectsDisplay = () => {
+const ProjectDisplay = () => {
     return (
         <section>
 
@@ -8,4 +8,4 @@ const ProjectsDisplay = () => {
     )
 }
 
-export default ProjectsDisplay;
+export default ProjectDisplay;

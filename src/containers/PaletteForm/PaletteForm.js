@@ -8,7 +8,8 @@ class PaletteForm extends React.Component {
     constructor() {
         super();
         this.state = {
-            name: ''
+            name: '',
+            project: ''
         }
     }
 
@@ -34,6 +35,9 @@ class PaletteForm extends React.Component {
         return (
             <form className='save-palette-form'>
                 <label htmlFor='name'>Ready to save this palette?</label>
+                <select name='project' value={this.state.project} onChange={this.handleChange}>
+                    <option value=''>Select a Project</option>
+                </select>
                 <input 
                     type='text' 
                     name='name'
