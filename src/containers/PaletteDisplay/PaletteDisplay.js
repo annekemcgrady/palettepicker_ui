@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import { getColors } from "../../actions";
+
+import { lockColor } from "../../actions";
 import PaletteTile from "../../components/PaletteTile/PaletteTile.js";
 import PaletteForm from '../PaletteForm/PaletteForm';
 import "./PaletteDisplay.scss";
@@ -22,13 +23,15 @@ export class PaletteDisplay extends Component {
         .scheme("contrast")
         .variation("hard");
 
+
+      
         let colors = scheme.colors().splice(0, 5);
         let colorObjects = colors.map(color => {
             return {hexCode: color, isLocked: false}
         })
 
         this.evaluateColors(colorObjects)
-      
+
     };
 
     generateOneColor =() => {
@@ -91,11 +94,8 @@ export const mapStateToProps = state => ({
     currentColors: state.colors
 });
 
-export const mapDispatchToProps = dispatch => ({
-});
+
 
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(PaletteDisplay);
+    mapStateToProps)(PaletteDisplay);

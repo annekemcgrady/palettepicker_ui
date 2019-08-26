@@ -1,6 +1,6 @@
-export const getColors = colors => ({
-    type: 'GET_COLORS',
-    colors
+export const lockColor = color => ({
+    type: 'LOCK_COLOR',
+    color
 })
 
 export const getProjects = projects => ({
