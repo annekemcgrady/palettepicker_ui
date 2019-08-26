@@ -1,10 +1,10 @@
 import React from 'react';
 import './ProjectTile.scss'
 
-const ProjectTile = () => {
+const ProjectTile = ({name}) => {
     return (
         <article>
-
+            <h2>{name}</h2>
         </article>
     )
 }

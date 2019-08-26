@@ -1,0 +1,20 @@
+.save-palette-form {
+    border:  1px black dotted;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+}
+
+
+.palette-form-input,
+.palette-form-btn {
+    border-radius: 15px;
+    font-size: 1em;
+    padding: 5px;
+    width: 150px;
+}
+
+.palette-form-label {
+
+}

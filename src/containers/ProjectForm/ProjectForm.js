@@ -11,7 +11,7 @@ class ProjectForm extends React.Component {
 
     render() {
         return (
-            <form>
+            <form className='save-project-form'>
                 <input type='text' name='name' value={this.state.name} placeholder='Name Your Project!'/>                
             </form>
         )
