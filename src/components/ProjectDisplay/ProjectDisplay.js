@@ -4,19 +4,18 @@ import ProjectTile from '../ProjectTile/ProjectTile';
 import { fetchProjects } from '../../utilz/apiCalls';
 import { getProjects, hasErrored, loadComplete } from '../../actions';
 import { connect } from 'react-redux';
-import { mapStateToProps, mapDispatchToProps } from '../../containers/PaletteDisplay/PaletteDisplay';
 
 class ProjectDisplay extends React.Component {
     componentDidMount() {
         fetchProjects()
-        .then(projects => props.getProjects(projects))
-        .then(props.loadComplete())
-        .catch(error => props.hasErrored(error))
+        .then(projects => this.props.getProjects(projects))
+        .then(this.props.loadComplete())
+        .catch(error => this.props.hasErrored(error))
 
     }
 
     render() {  
-        const tiles = props.projects.map(project => {
+        const tiles = this.props.projects.map(project => {
             return (
                 <ProjectTile 
                 key={Date.now()}
