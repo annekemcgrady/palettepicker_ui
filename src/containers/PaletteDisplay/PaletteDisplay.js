@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import PaletteTile from '../../components/PaletteTile/PaletteTile.js'
+import { connect } from 'react-redux';
+import { getColors } from '../../actions';
+import PaletteTile from '../../components/PaletteTile/PaletteTile.js';
 import './PaletteDisplay.scss';
-import ColorScheme from 'color-scheme'
+import ColorScheme from 'color-scheme';
 
 export class PaletteDisplay extends Component {
-
-    state = {
-        colors: []
+    constructor() {
+        super();
+        this.state = {
+            colors: []
+        }
     }
 
-generateColors =() => {
-let scheme = new ColorScheme;
-    scheme.from_hue(21)         // Start the scheme 
+generateColors = () => {
+let randomHue = Math.floor(Math.random())
+let scheme = new ColorScheme();
+    scheme.from_hue(randomHue)         // Start the scheme 
       .scheme('contrast')     // Use the 'triade' scheme, that is, colors
                             // selected from 3 points equidistant around
                             // the color wheel.
@@ -20,7 +24,7 @@ let scheme = new ColorScheme;
 
 var colors = scheme.colors();
 console.log(colors)
-this.setState(colors)
+this.setState({colors})
 this.props.setCurrentColors(this.state.colors)
 }
 
@@ -31,15 +35,18 @@ render = () => {
             key={Date.now()}
             isLocked={false}
             hexCode={color.hexCode}
+            style={{backgroundColor: color}}
         />
         )
     })
 
     return (
+        <>
         <section className='palette-display'>
             {displaySwatches }
-        <button type='button' className='generate-new-palette' onClick={this.generateColors}>Generate New Palette</button>
         </section>
+        <button type='button' className='generate-new-palette' onClick={this.generateColors}>Generate New Palette</button>
+        </>
     )
 }
     
@@ -50,7 +57,7 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-    setCurrentColors: newColors => dispatch(addColors(newColors))
+    setCurrentColors: newColors => dispatch(getColors(newColors))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PaletteDisplay);

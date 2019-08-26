@@ -7,9 +7,9 @@ import PaletteForm from '../../containers/PaletteForm/PaletteForm';
 
 const App = () => {
   return (
-
     <div className="App">
       <PaletteDisplay />
+      <PaletteForm />
     </div>
   );
 

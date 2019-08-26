@@ -53,6 +53,7 @@ export const postPalette = async (palette) => {
             body: JSON.stringify(palette)
         }
         const response = await fetch(url, options)
+        console.log(response)
         const addedPalette = response.json()
 
         return addedPalette;
