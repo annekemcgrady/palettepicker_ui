@@ -23,7 +23,7 @@ export class PaletteDisplay extends Component {
     console.log(this.props.currentColors);
 
     const displaySwatches = this.props.currentColors.map((color, index) => {
-        return <PaletteTile key={'pal-' + index} isLocked={false} hexCode={color.toUpperCase()} />;
+        return <PaletteTile key={'pal-' + index} id={color} isLocked={false} hexCode={color.toUpperCase()} />;
     });
 
     return (
