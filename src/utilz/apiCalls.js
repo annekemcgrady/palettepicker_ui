@@ -53,6 +53,7 @@ export const postPalette = async (palette) => {
             body: JSON.stringify(palette)
         }
         const response = await fetch(url, options)
+        console.log(response)
         const addedPalette = response.json()
 
         return addedPalette;
@@ -111,7 +112,9 @@ export const deleteProject = async (project) => {
 export const deletePalette = async (palette) => {
     try {
         const url = `http://localhost:3000/api/v1/palettes/${palette.id}`
+        const response = await fetch(url)
 
+        return response;
     } catch ({ message }) {
         throw new Error(message)
     }

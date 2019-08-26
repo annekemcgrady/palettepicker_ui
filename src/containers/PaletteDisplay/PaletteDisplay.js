@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getColors } from "../../actions";
 import PaletteTile from "../../components/PaletteTile/PaletteTile.js";
+import PaletteForm from '../PaletteForm/PaletteForm';
 import "./PaletteDisplay.scss";
 import ColorScheme from "color-scheme";
 
@@ -36,9 +37,11 @@ export class PaletteDisplay extends Component {
                 >
                 Generate New Palette
             </button>
+          <PaletteForm />
         </section>
     );
     };
+
 }
 
 export const mapStateToProps = state => ({
@@ -48,6 +51,7 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
     setCurrentColors: newColors => dispatch(getColors(newColors))
 });
+
 
 export default connect(
     mapStateToProps,
