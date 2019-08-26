@@ -12,7 +12,7 @@ const PaletteTile = ({ isLocked, hexCode, id,lockColor}) => {
 
         height: '350px',
         width: '200px',
-
+        transition: 'all 1.5s ease',
         border: '1px solid black'
     };
 
