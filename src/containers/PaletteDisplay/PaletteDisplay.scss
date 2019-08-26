@@ -1,17 +1,18 @@
 .palette-display {
   background-color: aliceblue;
   display: flex;
-  // flex: 2;
+  flex-direction: column;
   height: 50vh;
   justify-content: space-around;
   width: 100%;
 }
 
-.main {
-  width: 65%;
+.palette-tiles {
+  display: flex;
 }
 
-.generate-new-palette {
-  height: 40px;
+.generate-new-palette-button {
   width: 150px;
+  height: 40px;
+  align-self: center;
 }
