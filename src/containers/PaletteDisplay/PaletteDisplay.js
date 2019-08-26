@@ -15,7 +15,7 @@ export class PaletteDisplay extends Component {
     }
 }
     generateColors = () => {
-        let randomHue = Math.floor(Math.random() * 1000 + 1);
+        let randomHue = Math.floor(Math.random() * 10000 + 1);
         let scheme = new ColorScheme();
         scheme
         .from_hue(randomHue)
@@ -49,9 +49,16 @@ export class PaletteDisplay extends Component {
     }
 
     render = () => {
-  console.log(this.state.colors)
     const displaySwatches = this.state.colors.map((color, index) => {
-        return <PaletteTile key={'pal-' + index} id={color.hexCode} isLocked={color.isLocked} hexCode={color.hexCode.toUpperCase()} lockColor={this.lockColor} />;
+        return (
+            <PaletteTile 
+                key={'pal-' + index} 
+                id={color.hexCode} 
+                isLocked={color.isLocked} 
+                hexCode={color.hexCode.toUpperCase()} 
+                lockColor={this.lockColor} 
+            />
+        );
     });
 
     return (

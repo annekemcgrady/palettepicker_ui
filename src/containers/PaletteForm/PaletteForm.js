@@ -41,20 +41,20 @@ class PaletteForm extends React.Component {
     render() {
         return (
             <form className='save-palette-form'>
-                <label htmlFor='name'>Ready to save this palette?</label>
+                <label htmlFor='name' className='palette-form-label'>Ready to save this palette?</label>
                 <select name='project' value={this.state.project} onChange={this.handleChange}>
                     <option value=''>Select a Project</option>
                     <option value='project-one'>Project 1</option>
                 </select>
                 <input 
+                    className='palette-form-input'
                     type='text' 
                     name='name'
                     autoComplete='off' 
-
                     value={this.state.name} 
                     placeholder='Name it!' 
                     onChange={this.handleChange}/>
-                <button onClick={e => this.handleSubmit(e)}>Save it!</button>
+                <button className='palette-form-btn' onClick={e => this.handleSubmit(e)}>Save it!</button>
             </form>
         )
     }

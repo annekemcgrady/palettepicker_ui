@@ -20,13 +20,14 @@ class ProjectDisplay extends React.Component {
         const tiles = this.props.projects.map(project => {
             return (
                 <ProjectTile 
-                key={Date.now()}
+                key={project.updated_at}
                 name={project.name}
                 />
                 )
             })
             return (
                 <section className='project-display'>
+                    <h1 className='app-heading'>ColourRad</h1>
                     <ProjectForm />
                         {tiles}
                 </section>
