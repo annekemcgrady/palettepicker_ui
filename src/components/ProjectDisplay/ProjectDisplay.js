@@ -6,15 +6,31 @@ import { getProjects, hasErrored, loadComplete } from '../../actions';
 import { connect } from 'react-redux';
 import { mapStateToProps, mapDispatchToProps } from '../../containers/PaletteDisplay/PaletteDisplay';
 
-const ProjectDisplay = (props) => {
-    const projects = fetchProjects()
-    .then(projects => props.getProjects(projects))
-    .catch(error => props.hasErrored(error))
-    return (
-        <section className='project-display'>
+class ProjectDisplay extends React.Component {
+    componentDidMount() {
+        fetchProjects()
+        .then(projects => props.getProjects(projects))
+        .then(props.loadComplete())
+        .catch(error => props.hasErrored(error))
+
+    }
+
+    render() {  
+        const tiles = props.projects.map(project => {
+            return (
+                <ProjectTile 
+                key={Date.now()}
+                name={project.name}
+                />
+                )
+            })
+            return (
+                <section className='project-display'>
             <ProjectForm />
+            {tiles}
         </section>
     )
+  }
 }
 
 const mapStateToProps = state => ({
