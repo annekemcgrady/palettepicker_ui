@@ -4,10 +4,10 @@ import './PaletteTile.scss'
 const PaletteTile = ({ isLocked, hexCode }) => {
 
     var divStyle = {
-        color: 'white',
+        color: 'black',
         backgroundColor: `#${hexCode}`,
-        height: '300px',
-        width: '200px',
+        height: '350px',
+        width: '300px',
         border: '1px solid black'
     };
     
@@ -15,7 +15,7 @@ const PaletteTile = ({ isLocked, hexCode }) => {
         <article className='palette-tile' style={divStyle}>
             <p>#{hexCode}</p>
 
-
+            <button type='button' className='lock-button'>Lock</button>
         </article>
     )
 }

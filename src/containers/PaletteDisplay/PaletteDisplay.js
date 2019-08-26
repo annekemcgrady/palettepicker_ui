@@ -6,50 +6,50 @@ import "./PaletteDisplay.scss";
 import ColorScheme from "color-scheme";
 
 export class PaletteDisplay extends Component {
-  generateColors = () => {
-    let randomHue = Math.floor(Math.random() * 500 + 1);
-    let scheme = new ColorScheme();
-    scheme
-      .from_hue(randomHue)
-      .scheme("contrast")
-      .variation("hard");
+    generateColors = () => {
+        let randomHue = Math.floor(Math.random() * 1000 + 1);
+        let scheme = new ColorScheme();
+        scheme
+        .from_hue(randomHue)
+        .scheme("contrast")
+        .variation("hard");
 
-    var colors = scheme.colors().splice(0, 5);
-    // this.setState({colors})
-    this.props.setCurrentColors(colors);
-  };
+        var colors = scheme.colors().splice(0, 5);
+        // this.setState({colors})
+        this.props.setCurrentColors(colors);
+    };
 
-  render = () => {
+    render = () => {
     console.log(this.props.currentColors);
 
-    const displaySwatches = this.props.currentColors.map(color => {
-      return <PaletteTile key={Date.now()} isLocked={false} hexCode={color} />;
+    const displaySwatches = this.props.currentColors.map((color, index) => {
+        return <PaletteTile key={'pal-' + index} isLocked={false} hexCode={color.toUpperCase()} />;
     });
 
     return (
-      <section className="palette-display">
-        {displaySwatches}
-        <button
-          type="button"
-          className="generate-new-palette"
-          onClick={this.generateColors}
-        >
-          Generate New Palette
-        </button>
-      </section>
+        <section className="palette-display">
+            <div className='palette-tiles'>{displaySwatches}</div>
+            <button
+                type="button"
+                className="generate-new-palette-button"
+                onClick={this.generateColors}
+                >
+                Generate New Palette
+            </button>
+        </section>
     );
-  };
+    };
 }
 
 export const mapStateToProps = state => ({
-  currentColors: state.colors
+    currentColors: state.colors
 });
 
 export const mapDispatchToProps = dispatch => ({
-  setCurrentColors: newColors => dispatch(getColors(newColors))
+    setCurrentColors: newColors => dispatch(getColors(newColors))
 });
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(PaletteDisplay);
