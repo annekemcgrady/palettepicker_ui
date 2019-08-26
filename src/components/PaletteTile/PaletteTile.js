@@ -18,7 +18,7 @@ const PaletteTile = ({ isLocked, hexCode, id }) => {
     return (
         <article className='palette-tile' style={divStyle}>
             <p className='hex-code'>#{hexCode}</p>
-            <img type='button' src={unlocked} height='20px'/>
+            <img type='button'src={unlocked} height='20px'/>
         </article>
     )
 }
