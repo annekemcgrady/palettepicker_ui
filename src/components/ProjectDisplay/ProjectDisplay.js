@@ -2,8 +2,8 @@ import React from 'react';
 import './ProjectDisplay.scss'
 import ProjectForm from '../../containers/ProjectForm/ProjectForm';
 import ProjectTile from '../ProjectTile/ProjectTile';
-import { fetchProjects, fetchAllPalettes, deletePalette } from '../../utilz/apiCalls';
-import { getProjects, getPalettes, hasErrored, loadComplete, removePalette } from '../../actions';
+import { fetchProjects, fetchAllPalettes, deletePalette, deleteProject } from '../../utilz/apiCalls';
+import { getProjects, getPalettes, hasErrored, loadComplete, removePalette, removeProject } from '../../actions';
 import { connect } from 'react-redux';
 
 
@@ -34,9 +34,13 @@ export class ProjectDisplay extends React.Component {
 
 
     deletePalette = (id) => {
-        console.log(this)
         this.props.deletePalette(id)
         deletePalette(id)
+    }
+
+    deleteProject = (id) => {
+        this.props.deleteProject(id)
+        deleteProject(id)
     }
 
     render() {  
@@ -54,6 +58,7 @@ export class ProjectDisplay extends React.Component {
                 name={project.name}
                 palettes={project.palettes}
                 deletePalette={this.deletePalette}
+                deleteProject={this.deleteProject}
                 />
                 )
             })
@@ -78,6 +83,7 @@ export const mapDispatchToProps = dispatch => ({
     getProjects: projects => dispatch(getProjects(projects)),
     getPalettes: palettes => dispatch(getPalettes(palettes)),
     deletePalette: id => dispatch(removePalette(id)),
+    deleteProject: id => dispatch(removeProject(id)),
     hasErrored: error => dispatch(hasErrored(error)),
     loadComplete: () => dispatch(loadComplete())
 })

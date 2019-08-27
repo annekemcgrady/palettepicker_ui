@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProjectTile.scss'
 
-const ProjectTile = ({name,id, palettes, deletePalette}) => {
+const ProjectTile = ({ name,id, palettes, deletePalette, deleteProject }) => {
     
     const projectPalettes = palettes.map(palette => {
       
@@ -22,7 +22,7 @@ const ProjectTile = ({name,id, palettes, deletePalette}) => {
         <article className='project-tile'>
             <h2>Project: {name}</h2>
             {projectPalettes}
-            <button>Delete Project</button>
+            <button className='project-delete' onClick={()=> deleteProject(id)}>Delete Project</button>
         </article>
     )
 }

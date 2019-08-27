@@ -33,6 +33,11 @@ export const removePalette = id => ({
     id
 })
 
+export const removeProject = id => ({
+    type: 'REMOVE_PROJECT', 
+    id
+})
+
 export const loadComplete = () => ({
     type: 'LOAD_COMPLETE'
 })
