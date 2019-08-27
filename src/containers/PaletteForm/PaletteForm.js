@@ -21,11 +21,11 @@ export class PaletteForm extends React.Component {
         e.preventDefault();
         const newPalette = {
             name: this.state.name, 
-            color_one: this.props.colors[0], 
-            color_two: this.props.colors[1], 
-            color_three: this.props.colors[2], 
-            color_four: this.props.colors[3], 
-            color_five: this.props.colors[4] ,
+            color_one: this.props.colors[0].hexCode, 
+            color_two: this.props.colors[1].hexCode, 
+            color_three: this.props.colors[2].hexCode, 
+            color_four: this.props.colors[3].hexCode, 
+            color_five: this.props.colors[4].hexCode,
             project_id: this.state.project
         }
         

@@ -8,7 +8,7 @@ const PaletteTile = ({ isLocked, hexCode, id,lockColor}) => {
 
     let divStyle = {
         color: 'black',
-        backgroundColor: `#${hexCode}`,
+        backgroundColor: hexCode,
         height: '350px',
         width: '200px',
         transition: 'all 1.5s ease',
