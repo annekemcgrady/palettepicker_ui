@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
-// import { lockColor } from "../../actions";
+import { getColors } from "../../actions";
 import PaletteTile from "../../components/PaletteTile/PaletteTile.js";
 import PaletteForm from '../PaletteForm/PaletteForm';
 import "./PaletteDisplay.scss";
@@ -32,24 +31,24 @@ export class PaletteDisplay extends Component {
             return color.isLocked ? color : colorObjects[index]
           })
           if(!evaluatedColors.length) {
-              this.setState({colors: colorObjects})
+              this.props.setColors(colorObjects)
           } else {
-              this.setState({ colors: evaluatedColors });
+              this.props.setColors(evaluatedColors);
           }
     };
 
     lockColor = (id) => {
-        const lockedColors = this.state.colors.map(tile => {
+        const lockedColors = this.props.colors.map(tile => {
             if(tile.hexCode === id) {
             tile.isLocked = !tile.isLocked
             }
             return tile
         })
-        this.setState({ colors: lockedColors})
+        this.props.setColors(lockedColors)
     }
 
     render = () => {
-    const displaySwatches = this.state.colors.map((color, index) => {
+    const displaySwatches = this.props.colors.map((color, index) => {
         return (
             <PaletteTile 
                 key={'pal-' + index} 
@@ -78,11 +77,15 @@ export class PaletteDisplay extends Component {
 
 }
 
+
 export const mapStateToProps = state => ({
-    currentColors: state.colors
+    colors: state.colors
 });
 
+export const mapDispatchToProps = dispatch => ({
+    setColors: colors => dispatch(getColors(colors))
+})
 
 
 export default connect(
-    mapStateToProps)(PaletteDisplay);
+    mapStateToProps, mapDispatchToProps)(PaletteDisplay);

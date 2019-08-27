@@ -1,3 +1,8 @@
+export const getColors = colors => ({
+    type: 'ADD_COLORS', 
+    colors
+})
+
 export const lockColor = color => ({
     type: 'LOCK_COLOR',
     color

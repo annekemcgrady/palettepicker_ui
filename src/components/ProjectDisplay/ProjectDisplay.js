@@ -8,30 +8,22 @@ import { connect } from 'react-redux';
 
 
 class ProjectDisplay extends React.Component {
-    constructor(){
-        super()
-        this.state = {
-            projects: [],
-            palettes:[]
-        }
-    }
 
     componentDidMount() {
 
         fetchProjects()
 
-        .then(projects => this.setState({projects}))
-        .then(projects => fetchAllPalettes())
-        .then(palettes => this.setState({palettes}))
-        .then(projects => this.props.loadComplete())
+        .then(projects => this.props.getProjects(projects))
+        .then(() => fetchAllPalettes())
+        .then(palettes => this.props.getPalettes(palettes))
+        .then(() => this.props.loadComplete())
         .catch(error => this.props.hasErrored(error))
 
     }
 
     render() {  
-        //CHANGE THIS BACK TO THIS.PROPS.PROJECTS IF WE ARE SENDING TO REDUX STORE
-        let projects = this.state.projects.map(project => {
-            let projPalettes = this.state.palettes.filter(palette => palette.project_id===project.id)
+        let projects = this.props.projects.map(project => {
+            let projPalettes = this.props.palettes.filter(palette => palette.project_id===project.id)
             return { ...project, palettes: projPalettes}
         })
 
@@ -56,6 +48,7 @@ class ProjectDisplay extends React.Component {
 
 const mapStateToProps = state => ({
     projects: state.projects,
+    palettes: state.palettes,
     error: state.error,
     isLoading: state.loading
 })
