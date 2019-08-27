@@ -4,7 +4,7 @@ import locked from '../../images/locked.png'
 import unlocked from '../../images/unlocked.png'
 
 
-const PaletteTile = ({ isLocked, hexCode, id,lockColor}) => {
+const PaletteTile = ({ isLocked, hexCode, id, lockColor}) => {
 
     let divStyle = {
         color: 'black',

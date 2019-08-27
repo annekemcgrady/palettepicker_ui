@@ -28,6 +28,11 @@ export const addPalette = palette => ({
     palette
 })
 
+export const removePalette = id => ({
+    type: 'REMOVE_PALETTE', 
+    id
+})
+
 export const loadComplete = () => ({
     type: 'LOAD_COMPLETE'
 })

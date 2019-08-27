@@ -2,12 +2,12 @@ import React from 'react';
 import './ProjectDisplay.scss'
 import ProjectForm from '../../containers/ProjectForm/ProjectForm';
 import ProjectTile from '../ProjectTile/ProjectTile';
-import { fetchProjects, fetchAllPalettes } from '../../utilz/apiCalls';
-import { getProjects, getPalettes, hasErrored, loadComplete } from '../../actions';
+import { fetchProjects, fetchAllPalettes, deletePalette } from '../../utilz/apiCalls';
+import { getProjects, getPalettes, hasErrored, loadComplete, removePalette } from '../../actions';
 import { connect } from 'react-redux';
 
 
-class ProjectDisplay extends React.Component {
+export class ProjectDisplay extends React.Component {
 
     componentDidMount() {
 
@@ -32,9 +32,15 @@ class ProjectDisplay extends React.Component {
     //     }
     // }
 
+
+    deletePalette = (id) => {
+        console.log(this)
+        this.props.deletePalette(id)
+        deletePalette(id)
+    }
+
     render() {  
 
-      
         let projects = this.props.projects.map(project => {
             let projPalettes = this.props.palettes.filter(palette => palette.project_id===project.id)
             return { ...project, palettes: projPalettes}
@@ -43,9 +49,11 @@ class ProjectDisplay extends React.Component {
         const tiles = projects.map(project => {
             return (
                 <ProjectTile 
+                id ={project.id}
                 key={project.created_at}
                 name={project.name}
                 palettes={project.palettes}
+                deletePalette={this.deletePalette}
                 />
                 )
             })
@@ -59,16 +67,17 @@ class ProjectDisplay extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
     projects: state.projects,
     palettes: state.palettes,
     error: state.error,
     isLoading: state.loading
 })
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
     getProjects: projects => dispatch(getProjects(projects)),
     getPalettes: palettes => dispatch(getPalettes(palettes)),
+    deletePalette: id => dispatch(removePalette(id)),
     hasErrored: error => dispatch(hasErrored(error)),
     loadComplete: () => dispatch(loadComplete())
 })
