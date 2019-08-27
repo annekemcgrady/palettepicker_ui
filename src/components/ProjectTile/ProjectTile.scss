@@ -7,12 +7,19 @@
 }
 
 .project-palette {
+  font-size: 1em;
   display: flex;
-  width: 150px;
+  width: 90%;
+  border: 1px solid black;
 }
 
 .project-palette-div {
   width: 20px;
   height: 20px;
   border: 1px solid black;
+}
+
+.project-palette-delete {
+  width: 40px;
+  height: 20px;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import './ProjectDisplay.scss'
 import ProjectForm from '../../containers/ProjectForm/ProjectForm';
 import ProjectTile from '../ProjectTile/ProjectTile';
-import { fetchProjects, fetchPalettes } from '../../utilz/apiCalls';
+import { fetchProjects, fetchAllPalettes } from '../../utilz/apiCalls';
 import { getProjects, hasErrored, loadComplete, getPalettes } from '../../actions';
 import { connect } from 'react-redux';
 
@@ -20,26 +20,16 @@ class ProjectDisplay extends React.Component {
 
         fetchProjects()
         .then(projects => this.setState({projects}))
-        .then(projects => this.getPalettesByProject(this.state.projects))
-        .then(palettes => this.setState({palettes: [...palettes]}))
+        .then(projects => fetchAllPalettes())
+        .then(palettes => this.setState({palettes}))
         .then(projects => this.props.loadComplete())
         .catch(error => this.props.hasErrored(error))
     }
 
-    getPalettesByProject = (projects) => {
-        console.log('firing')
-        let foundPalettes =[];
-        projects.forEach(project => {
-        foundPalettes.push(fetchPalettes(project))
-        })
-        return Promise.all(foundPalettes)
-    }
-
     render() {  
-        console.log(this.state.palettes)
-        //CHANGE THIS BACK TO THIS.PROPS.PROJECTS ONCE WE ARE SENDING TO REDUX STORE
+        //CHANGE THIS BACK TO THIS.PROPS.PROJECTS IF WE ARE SENDING TO REDUX STORE
         let projects = this.state.projects.map(project => {
-            let projPalettes = this.state.palettes.flat().filter(palette => palette.project_id===project.id)
+            let projPalettes = this.state.palettes.filter(palette => palette.project_id===project.id)
             return { ...project, palettes: projPalettes}
         })
 
