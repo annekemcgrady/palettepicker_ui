@@ -1,6 +1,8 @@
+const path = process.env.REACT_APP_BACKEND_URL
+
 export const fetchProjects = async () => {
     try {
-        const url = `http://localhost:3000/api/v1/projects`
+        const url = `${path}/projects`
         const response = await fetch(url);
         if(!response.ok) {
             throw new Error('Projects failed to fetch');
@@ -15,7 +17,7 @@ export const fetchProjects = async () => {
 export const fetchPalettes = async project => {
     try {
         const { id } = project;
-        const url = `http://localhost:3000/api/v1/projects/${id}/palettes`
+        const url = `${path}/projects/${id}/palettes`
         const response = await fetch(url)
         if(!response.ok) {
             throw new Error('Palettes failed to fetch')
@@ -31,7 +33,7 @@ export const fetchPalettes = async project => {
 
 export const fetchAllPalettes = async () => {
     try {
-        const url = 'http://localhost:3000/api/v1/palettes'
+        const url = `${path}/palettes`
         const response = await fetch(url)
         if(!response.ok) {
             throw new Error('Palettes failed to fetch')
@@ -45,7 +47,7 @@ export const fetchAllPalettes = async () => {
 
 export const postProject = async (project) => {
     try {
-        const url = `http://localhost:3000/api/v1/projects`
+        const url = `${path}/projects`
         const options = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -63,7 +65,7 @@ export const postProject = async (project) => {
 
 export const postPalette = async (palette) => {
     try {
-        const url = `http://localhost:3000/api/v1/palettes`
+        const url = `${path}/palettes`
         const options = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -81,7 +83,7 @@ export const postPalette = async (palette) => {
 
 export const patchProject = async (project) => {
     try {
-        const url = `http://localhost:3000/api/v1/projects/${project.id}`
+        const url = `${path}/projects/${project.id}`
         const options = {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
@@ -99,7 +101,7 @@ export const patchProject = async (project) => {
 
 export const patchPalette = async (palette) => {
     try {
-        const url = `http://localhost:3000/api/v1/palettes/${palette.id}`
+        const url = `${path}/palettes/${palette.id}`
         const options = {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
@@ -120,7 +122,7 @@ export const deleteProject = async (id) => {
         method: 'DELETE'}
 
     try {
-        const url = `http://localhost:3000/api/v1/projects/${id}`
+        const url = `${path}/projects/${id}`
         const response = await fetch(url, options)
 
         return response;
@@ -134,7 +136,7 @@ export const deletePalette = async (id) => {
         method: 'DELETE'}
 
     try {
-        const url = `http://localhost:3000/api/v1/palettes/${id}`
+        const url = `${path}/palettes/${id}`
         const response = await fetch(url, options)
 
         return response;
