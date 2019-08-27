@@ -4,10 +4,11 @@ import './ProjectTile.scss'
 const ProjectTile = ({name, palettes}) => {
 
     const projectPalettes = palettes.map(palette => {
-        
+        console.log(palette)
+      
         return (
             <article className='project-palette'>
-                <p>{palette.name}</p>
+                <p>Name: {palette.name}</p>
                 <div className='project-palette-div' backgroundColor={palette.color_one}></div>
                 <div className='project-palette-div' backgroundColor={palette.color_two}></div>
                 <div className='project-palette-div' backgroundColor={palette.color_three}></div>
@@ -20,7 +21,8 @@ const ProjectTile = ({name, palettes}) => {
 
     return (
         <article className='project-tile'>
-            <h2>{name}</h2>
+            <h2>Project: {name}</h2>
+            {projectPalettes}
         </article>
     )
 }

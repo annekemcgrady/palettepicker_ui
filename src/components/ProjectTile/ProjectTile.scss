@@ -1,8 +1,18 @@
 .project-tile {
   width: 90%;
-  height: 200px;
   background-color:aliceblue;
   border: 1px solid black;
   border-radius: 5px;
   margin: 5px;
+}
+
+.project-palette {
+  display: flex;
+  width: 150px;
+}
+
+.project-palette-div {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
 }
