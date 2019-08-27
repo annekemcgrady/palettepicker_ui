@@ -59,14 +59,14 @@ export class PaletteForm extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
     palettes: state.palettes,
     colors: state.colors,
     projects: state.projects,
     error: state.error
 })
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
     addPalette: palette => dispatch(addPalette(palette)),
     hasErrored: error => dispatch(hasErrored(error))
 })

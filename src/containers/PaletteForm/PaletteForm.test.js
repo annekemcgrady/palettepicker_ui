@@ -75,5 +75,60 @@ describe('PaletteForm', () => {
         instance.clearInputs();
 
         expect(wrapper.state()).toEqual(expected)
+    });
+
+    describe('mapStateToProps', () => {
+        it('should return projects, palettes, and error from store', () => {
+            const mockState = {
+                palettes: [{name: 'Golden Hour'}, {name: 'London Fog'}],
+                colors: [{color: '123456'}, {color: 'ffffff'}],
+                projects: [{name: 'Dream House'}, {name: 'Brunch Fest'}],
+                error: ''
+            }
+
+            const expected = {
+                palettes: [{name: 'Golden Hour'}, {name: 'London Fog'}],
+                colors: [{color: '123456'}, {color: 'ffffff'}],
+                projects: [{name: 'Dream House'}, {name: 'Brunch Fest'}],
+                error: ''
+            }
+
+            const mappedProps = mapStateToProps(mockState)
+            expect(mappedProps).toEqual(expected)
+        });
+    });
+
+    describe('mapDispatchToProps', () => {
+        let mockDispatch;
+
+        beforeEach(() => {
+            mockDispatch = jest.fn()
+        });
+
+        it('should dispatch addPalette when handleSubmit is called', () => {
+            const actionToDispatch = addPalette({
+                palette: {name: 'London Fog'}
+            })
+
+            const mappedProps = mapDispatchToProps(mockDispatch)
+            mappedProps.addPalette({
+                palette: {name: 'London Fog'}
+            });
+
+            expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+        });
+
+        it('should dispatch hasErrored on handleSubmit if there is an error', () => {
+            const actionToDispatch = hasErrored({
+                error: {error : 'Error adding palette'}
+            });
+
+            const mappedProps = mapDispatchToProps(mockDispatch)
+            mappedProps.hasErrored({
+                error: {error: 'Error adding palette'}
+            });
+
+            expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+        })
     })
 })
