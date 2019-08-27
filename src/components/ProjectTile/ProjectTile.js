@@ -7,7 +7,7 @@ const ProjectTile = ({name, palettes}) => {
       
         return (
             <article className='project-palette'>
-                <p>Name: {palette.name}</p>
+                <p>{palette.name}</p>
                 <div className='project-palette-div' style={{backgroundColor: palette.color_one}}></div>
                 <div className='project-palette-div' style={{backgroundColor: palette.color_two}}></div>
                 <div className='project-palette-div' style={{backgroundColor: palette.color_three}}></div>
