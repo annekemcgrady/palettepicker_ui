@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
-import { lockColor } from "../../actions";
+// import { lockColor } from "../../actions";
 import PaletteTile from "../../components/PaletteTile/PaletteTile.js";
 import PaletteForm from '../PaletteForm/PaletteForm';
 import "./PaletteDisplay.scss";

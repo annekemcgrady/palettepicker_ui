@@ -2,26 +2,41 @@ import React from 'react';
 import './ProjectDisplay.scss'
 import ProjectForm from '../../containers/ProjectForm/ProjectForm';
 import ProjectTile from '../ProjectTile/ProjectTile';
-import { fetchProjects } from '../../utilz/apiCalls';
+import { fetchProjects, fetchPalettes } from '../../utilz/apiCalls';
 import { getProjects, hasErrored, loadComplete } from '../../actions';
 import { connect } from 'react-redux';
 
 
 class ProjectDisplay extends React.Component {
-    componentDidMount() {
-        fetchProjects()
-        .then(projects => this.props.getProjects(projects))
-        .then(this.props.loadComplete())
-        .catch(error => this.props.hasErrored(error))
-
+    constructor(){
+        super()
+        this.state = {
+            projects: [],
+            palettes:[]
+        }
     }
 
+    componentDidMount() {
+        fetchProjects()
+        .then(projects=>this.setState({projects}))
+        .then(projects => fetchPalettes(this.state.projects[0]))
+        .then(palettes => this.setState({palettes: [...palettes]}))
+        .then(projects => this.props.loadComplete())
+        .catch(error => this.props.hasErrored(error))
+    }
+
+
+
+
     render() {  
-        const tiles = this.props.projects.map(project => {
+        console.log(this.state)
+        //CHANGE THIS BACK TO THIS.PROPS.PROJECTS ONCE WE ARE SENDING TO REDUX STORE
+        const tiles = this.state.projects.map(project => {
             return (
                 <ProjectTile 
                 key={project.updated_at}
                 name={project.name}
+                palettes={project.palettes}
                 />
                 )
             })

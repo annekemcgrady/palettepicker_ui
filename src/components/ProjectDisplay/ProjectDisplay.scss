@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Lexend+Exa&display=swap');
 
 .project-display {
+    display: flex;
+    flex-direction: column;
     flex: 1;
+    align-items: center;
 }
 
 .app-heading {
