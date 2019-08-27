@@ -8,7 +8,8 @@ export class PaletteForm extends React.Component {
     constructor() {
         super();
         this.state = {
-            name: ''
+            name: '',
+            project: ''
         }
     }
 
@@ -18,14 +19,16 @@ export class PaletteForm extends React.Component {
     
     handleSubmit = e => {
         e.preventDefault();
-        const newPalette = {...this.state.name, 
+        const newPalette = {
+            name: this.state.name, 
             color_one: this.props.colors[0], 
             color_two: this.props.colors[1], 
             color_three: this.props.colors[2], 
             color_four: this.props.colors[3], 
-            color_five: this.props.colors[4] 
+            color_five: this.props.colors[4] ,
+            project_id: this.state.project
         }
-        console.log(newPalette)
+        
         postPalette(newPalette)
         .then(palette => this.props.addPalette(palette))
         .catch(error => this.props.hasErrored(error))
@@ -38,12 +41,18 @@ export class PaletteForm extends React.Component {
     }
 
     render() {
+        const dropDownMenu = this.props.projects.map(project => {
+            return (
+                <option key={project.created_at} value={project.id}>{project.name}</option>
+            )
+        })
+
         return (
             <form className='save-palette-form'>
                 <label htmlFor='name' className='palette-form-label'>Ready to save this palette?</label>
                 <select name='project' value={this.state.project} onChange={this.handleChange}>
                     <option value=''>Select a Project</option>
-                    <option value='project-one'>Project 1</option>
+                    {dropDownMenu}
                 </select>
                 <input 
                     className='palette-form-input'
