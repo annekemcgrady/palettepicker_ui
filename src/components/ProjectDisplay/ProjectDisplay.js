@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 
 
 class ProjectDisplay extends React.Component {
+
     componentDidMount() {
 
         fetchProjects()
@@ -33,6 +34,7 @@ class ProjectDisplay extends React.Component {
 
     render() {  
 
+      
         let projects = this.props.projects.map(project => {
             let projPalettes = this.props.palettes.filter(palette => palette.project_id===project.id)
             return { ...project, palettes: projPalettes}
