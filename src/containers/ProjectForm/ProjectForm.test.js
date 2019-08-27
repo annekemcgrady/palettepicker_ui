@@ -71,5 +71,56 @@ describe('ProjectForm', () => {
         instance.clearInputs();
 
         expect(wrapper.state()).toEqual(expected)
+    });
+
+    describe('mapStateToProps', () => {
+        const mockState = {
+            projects: [{name: 'Dream House'}, {name: 'Loft'}],
+            error: '',
+            loading: true
+        }
+        
+        const expected = {
+            projects: [{name: 'Dream House'}, {name: 'Loft'}],
+            error: '',
+            loading: true
+        }
+
+        const mappedProps = mapStateToProps(mockState)
+        expect(mappedProps).toEqual(expected)
+    });
+
+    describe('mapDispatchToProps', () => {
+        let mockDispatch;
+
+        beforeEach(() => {
+            mockDispatch = jest.fn()
+        });
+
+        it('should dispatch addProject when handleSubmit is called', () => {
+            const actionToDispatch = addProject({
+                name: 'Dream House'
+            });
+
+            const mappedProps = mapDispatchToProps(mockDispatch);
+            mappedProps.addProject({
+                name: 'Dream House'
+            })
+
+            expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+        });
+
+        it('should dispatch hasErrored when error occurs', () => {
+            const actionToDispatch = hasErrored({
+                error: 'Error posting project'
+            });
+
+            const mappedProps = mapDispatchToProps(mockDispatch);
+            mappedProps.hasErrored({
+                error: 'Error posting project'
+            });
+            
+            expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+        })
     })
 })
