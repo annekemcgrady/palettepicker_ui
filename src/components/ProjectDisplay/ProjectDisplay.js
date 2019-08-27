@@ -3,7 +3,7 @@ import './ProjectDisplay.scss'
 import ProjectForm from '../../containers/ProjectForm/ProjectForm';
 import ProjectTile from '../ProjectTile/ProjectTile';
 import { fetchProjects, fetchAllPalettes, deletePalette, deleteProject } from '../../utilz/apiCalls';
-import { getProjects, getPalettes, hasErrored, loadComplete, removePalette, removeProject } from '../../actions';
+import { getProjects, getPalettes, hasErrored, loadComplete, removePalette, removeProject, getColors } from '../../actions';
 import { connect } from 'react-redux';
 
 
@@ -43,6 +43,12 @@ export class ProjectDisplay extends React.Component {
         deleteProject(id)
     }
 
+    setPalette = (palette) => {
+        console.log(palette)
+        let {color_one, color_two, color_three, color_four, color_five} = palette
+        this.props.setColors([{hexCode: color_one}, {hexCode: color_two}, {hexCode: color_three}, {hexCode: color_four}, {hexCode: color_five}])
+    }
+
     render() {  
 
         let projects = this.props.projects.map(project => {
@@ -59,6 +65,7 @@ export class ProjectDisplay extends React.Component {
                 palettes={project.palettes}
                 deletePalette={this.deletePalette}
                 deleteProject={this.deleteProject}
+                setPalette={this.setPalette}
                 />
                 )
             })
@@ -84,6 +91,7 @@ export const mapDispatchToProps = dispatch => ({
     getPalettes: palettes => dispatch(getPalettes(palettes)),
     deletePalette: id => dispatch(removePalette(id)),
     deleteProject: id => dispatch(removeProject(id)),
+    setColors: colors => dispatch(getColors(colors)),
     hasErrored: error => dispatch(hasErrored(error)),
     loadComplete: () => dispatch(loadComplete())
 })

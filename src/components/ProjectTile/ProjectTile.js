@@ -1,12 +1,12 @@
 import React from 'react';
 import './ProjectTile.scss'
 
-const ProjectTile = ({ name,id, palettes, deletePalette, deleteProject }) => {
+const ProjectTile = ({ name,id, palettes, deletePalette, deleteProject, setPalette}) => {
     
     const projectPalettes = palettes.map(palette => {
       
         return (
-            <article className='project-palette'>
+            <article onClick={()=>setPalette(palette)} className='project-palette'>
                 <p>{palette.name}</p>
                 <div className='project-palette-div' style={{backgroundColor: palette.color_one}}></div>
                 <div className='project-palette-div' style={{backgroundColor: palette.color_two}}></div>
