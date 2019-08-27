@@ -27,7 +27,7 @@ export class PaletteDisplay extends Component {
             return {hexCode: color, isLocked: false}
         })
 
-        const evaluatedColors =  this.state.colors.map((color, index) => {
+        const evaluatedColors =  this.props.colors.map((color, index) => {
             return color.isLocked ? color : colorObjects[index]
           })
           if(!evaluatedColors.length) {
