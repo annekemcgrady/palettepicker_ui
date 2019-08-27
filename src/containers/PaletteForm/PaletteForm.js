@@ -4,12 +4,11 @@ import { postPalette } from '../../utilz/apiCalls';
 import { addPalette, hasErrored } from '../../actions'
 import './PaletteForm.scss';
 
-class PaletteForm extends React.Component {
+export class PaletteForm extends React.Component {
     constructor() {
         super();
         this.state = {
-            name: '',
-            project: ''
+            name: ''
         }
     }
 
