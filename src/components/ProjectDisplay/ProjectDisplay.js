@@ -3,7 +3,7 @@ import './ProjectDisplay.scss'
 import ProjectForm from '../../containers/ProjectForm/ProjectForm';
 import ProjectTile from '../ProjectTile/ProjectTile';
 import { fetchProjects, fetchAllPalettes } from '../../utilz/apiCalls';
-import { getProjects, hasErrored, loadComplete, getPalettes } from '../../actions';
+import { getProjects, getPalettes, hasErrored, loadComplete } from '../../actions';
 import { connect } from 'react-redux';
 
 
@@ -19,11 +19,13 @@ class ProjectDisplay extends React.Component {
     componentDidMount() {
 
         fetchProjects()
+
         .then(projects => this.setState({projects}))
         .then(projects => fetchAllPalettes())
         .then(palettes => this.setState({palettes}))
         .then(projects => this.props.loadComplete())
         .catch(error => this.props.hasErrored(error))
+
     }
 
     render() {  
@@ -60,6 +62,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     getProjects: projects => dispatch(getProjects(projects)),
+    getPalettes: palettes => dispatch(getPalettes(palettes)),
     hasErrored: error => dispatch(hasErrored(error)),
     loadComplete: () => dispatch(loadComplete())
 })

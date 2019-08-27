@@ -21,6 +21,7 @@ export const fetchPalettes = async project => {
             throw new Error('Palettes failed to fetch')
         }
         const palettes = await response.json();
+        console.log(palettes)
         return palettes;
     } catch ({ message }) {
         throw new Error(message)
