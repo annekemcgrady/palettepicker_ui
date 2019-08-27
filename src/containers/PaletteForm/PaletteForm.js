@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { postPalette } from '../../utilz/apiCalls';
-import { addPalette, hasErrored } from '../../actions'
+import { postPalette, fetchAllPalettes } from '../../utilz/apiCalls';
+import { addPalette, hasErrored, getPalettes } from '../../actions'
 import './PaletteForm.scss';
 
 export class PaletteForm extends React.Component {
@@ -30,9 +30,9 @@ export class PaletteForm extends React.Component {
         }
         
         postPalette(newPalette)
-        .then(palette => this.props.addPalette(palette))
+        .then(() => fetchAllPalettes())
+        .then(palettes => this.props.getPalettes(palettes))
         .catch(error => this.props.hasErrored(error))
-        
         this.clearInputs()
     }
 
@@ -77,6 +77,7 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
     addPalette: palette => dispatch(addPalette(palette)),
+    getPalettes: palettes => dispatch(getPalettes(palettes)),
     hasErrored: error => dispatch(hasErrored(error))
 })
 

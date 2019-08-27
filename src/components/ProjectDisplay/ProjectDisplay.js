@@ -21,16 +21,16 @@ export class ProjectDisplay extends React.Component {
 
     }
 
-    // componentDidUpdate(prevProps) {
-    //     if(prevProps.projects !== this.props.projects) {
+    // componentWillReceiveProps(props) {
+
     //         fetchProjects()
-    //         .then(projects => this.props.getProjects(projects))
+    //         .then(projects => props.getProjects(projects))
     //         .then(() => fetchAllPalettes())
-    //         .then(palettes => this.props.getPalettes(palettes))
-    //         .then(() => this.props.loadComplete())
-    //         .catch(error => this.props.hasErrored(error))
+    //         .then(palettes => props.getPalettes(palettes))
+    //         .then(() => props.loadComplete())
+    //         .catch(error => props.hasErrored(error))
     //     }
-    // }
+    
 
 
     deletePalette = (id) => {
@@ -44,7 +44,6 @@ export class ProjectDisplay extends React.Component {
     }
 
     setPalette = (palette) => {
-        console.log(palette)
         let {color_one, color_two, color_three, color_four, color_five} = palette
         this.props.setColors([{hexCode: color_one}, {hexCode: color_two}, {hexCode: color_three}, {hexCode: color_four}, {hexCode: color_five}])
     }
