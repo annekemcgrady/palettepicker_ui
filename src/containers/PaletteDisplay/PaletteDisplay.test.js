@@ -10,6 +10,11 @@ describe('PaletteDisplay', () => {
   let props;
 
 
+  it.skip('should match the snapshot', ()=>{
+
+  })
+
+
 
 
 })

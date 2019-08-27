@@ -8,7 +8,9 @@ describe('PaletteTile', () => {
   let instance;
   let props;
 
+  it('should match the snapshot', ()=>{
 
+  })
 
 
 })
