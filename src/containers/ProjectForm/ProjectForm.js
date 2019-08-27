@@ -4,7 +4,7 @@ import { addProject, hasErrored } from '../../actions';
 import { postProject } from '../../utilz/apiCalls';
 import './ProjectForm.scss';
 
-class ProjectForm extends React.Component {
+export class ProjectForm extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -38,10 +38,11 @@ class ProjectForm extends React.Component {
                     name='name' 
                     value={this.state.name} 
                     onChange={this.handleChange}
+                    className='project-form-input'
                     placeholder='Name Your Project!'
                     autoComplete="off"
                 /> 
-                <button onClick={e => this.handleSubmit(e)}>Add Project</button>               
+                <button className='project-form-btn' onClick={e => this.handleSubmit(e)}>Add Project</button>               
             </form>
         )
     }
