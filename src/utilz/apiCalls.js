@@ -115,10 +115,13 @@ export const patchPalette = async (palette) => {
     }
 }
 
-export const deleteProject = async (project) => {
+export const deleteProject = async (id) => {
+    const options = {
+        method: 'DELETE'}
+
     try {
-        const url = `http://localhost:3000/api/v1/projects/${project.id}`
-        const response = await fetch(url)
+        const url = `http://localhost:3000/api/v1/projects/${id}`
+        const response = await fetch(url, options)
 
         return response;
     } catch ({ message }) {
@@ -126,10 +129,13 @@ export const deleteProject = async (project) => {
     }
 }
 
-export const deletePalette = async (palette) => {
+export const deletePalette = async (id) => {
+    const options = {
+        method: 'DELETE'}
+
     try {
-        const url = `http://localhost:3000/api/v1/palettes/${palette.id}`
-        const response = await fetch(url)
+        const url = `http://localhost:3000/api/v1/palettes/${id}`
+        const response = await fetch(url, options)
 
         return response;
     } catch ({ message }) {

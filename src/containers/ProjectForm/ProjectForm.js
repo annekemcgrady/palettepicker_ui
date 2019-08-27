@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addProject, hasErrored } from '../../actions';
-import { postProject } from '../../utilz/apiCalls';
+import { addProject, hasErrored, getProjects } from '../../actions';
+import { postProject, fetchProjects } from '../../utilz/apiCalls';
 import './ProjectForm.scss';
 
 export class ProjectForm extends React.Component {
@@ -20,9 +20,9 @@ export class ProjectForm extends React.Component {
         e.preventDefault();
         const newProject = {...this.state}
         postProject(newProject)
-        .then(project => this.props.addProject(project))
+        .then(()=> fetchProjects())
+        .then(projects => this.props.getProjects(projects))
         .catch(error => this.props.hasErrored(error))
-
         this.clearInputs()
     }
 
@@ -56,6 +56,7 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
     addProject: project => dispatch(addProject(project)),
+    getProjects: projects => dispatch(getProjects(projects)),
     hasErrored: error => dispatch(hasErrored(error))
 })
 

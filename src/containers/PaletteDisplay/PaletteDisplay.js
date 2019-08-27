@@ -21,10 +21,9 @@ export class PaletteDisplay extends Component {
         .scheme("contrast")
         .variation("hard");
 
-
         let colors = scheme.colors().splice(0, 5);
         let colorObjects = colors.map(color => {
-            return {hexCode: color, isLocked: false}
+            return {hexCode: `#${color}`, isLocked: false}
         })
 
         const evaluatedColors =  this.props.colors.map((color, index) => {
