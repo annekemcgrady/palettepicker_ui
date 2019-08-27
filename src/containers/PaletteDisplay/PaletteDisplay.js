@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+
+// import { lockColor } from "../../actions";
 import PaletteTile from "../../components/PaletteTile/PaletteTile.js";
 import PaletteForm from '../PaletteForm/PaletteForm';
 import "./PaletteDisplay.scss";
@@ -79,7 +81,6 @@ export class PaletteDisplay extends Component {
 export const mapStateToProps = state => ({
     currentColors: state.colors
 });
-
 
 
 

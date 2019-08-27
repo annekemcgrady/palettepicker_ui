@@ -2,37 +2,45 @@ import React from 'react';
 import './ProjectDisplay.scss'
 import ProjectForm from '../../containers/ProjectForm/ProjectForm';
 import ProjectTile from '../ProjectTile/ProjectTile';
-import { fetchProjects, fetchPalettes } from '../../utilz/apiCalls';
+import { fetchProjects, fetchAllPalettes } from '../../utilz/apiCalls';
 import { getProjects, getPalettes, hasErrored, loadComplete } from '../../actions';
 import { connect } from 'react-redux';
 
 
 class ProjectDisplay extends React.Component {
+    constructor(){
+        super()
+        this.state = {
+            projects: [],
+            palettes:[]
+        }
+    }
+
     componentDidMount() {
+
         fetchProjects()
-        .then(projects => this.props.getProjects(projects))
-        .then(this.props.projects.map(project => {
-            return fetchPalettes(project)
-            .then(palettes => console.log(palettes))
-        }))
-        .then(this.props.loadComplete())
+
+        .then(projects => this.setState({projects}))
+        .then(projects => fetchAllPalettes())
+        .then(palettes => this.setState({palettes}))
+        .then(projects => this.props.loadComplete())
         .catch(error => this.props.hasErrored(error))
-
-        // this.props.projects.map(project => {
-        //     return fetchPalettes(project)
-        //     .then(palettes => this.props.getPalettes(palettes))
-        //     .catch(error => hasErrored(error))
-        // })
-
 
     }
 
     render() {  
-        const tiles = this.props.projects.map(project => {
+        //CHANGE THIS BACK TO THIS.PROPS.PROJECTS IF WE ARE SENDING TO REDUX STORE
+        let projects = this.state.projects.map(project => {
+            let projPalettes = this.state.palettes.filter(palette => palette.project_id===project.id)
+            return { ...project, palettes: projPalettes}
+        })
+
+        const tiles = projects.map(project => {
             return (
                 <ProjectTile 
                 key={project.updated_at}
                 name={project.name}
+                palettes={project.palettes}
                 />
                 )
             })
