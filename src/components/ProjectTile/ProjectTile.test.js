@@ -8,7 +8,9 @@ describe('ProjectTile', () => {
   let instance;
   let props;
 
+  it('should match the snapshot', ()=>{
 
+  })
 
 
 })
