@@ -122,8 +122,8 @@ export const deleteProject = async (id) => {
     try {
         const url = `http://localhost:3000/api/v1/projects/${id}`
         const response = await fetch(url, options)
-
-        return response;
+        
+        return response.json();
     } catch ({ message }) {
         throw new Error(message)
     }
@@ -136,8 +136,8 @@ export const deletePalette = async (id) => {
     try {
         const url = `http://localhost:3000/api/v1/palettes/${id}`
         const response = await fetch(url, options)
-
-        return response;
+        
+        return response.json();
     } catch ({ message }) {
         throw new Error(message)
     }
