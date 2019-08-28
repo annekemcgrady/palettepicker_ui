@@ -35,10 +35,6 @@ describe('PaletteForm', () => {
         expect(wrapper.state('name')).toEqual('Golden Hour')
     });
 
-    // it('should call handleChange when an option is selected', () => {
-
-    // });
-
     it('should call handleSubmit when save button is clicked', () => {
         const mockEvent = { preventDefault: jest.fn() };
         instance.handleSubmit = jest.fn();

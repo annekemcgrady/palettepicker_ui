@@ -23,18 +23,18 @@ export class ProjectDisplay extends React.Component {
 
 
     deletePalette = (id) => {
-        this.props.deletePalette(id)
+        this.props.removePalette(id)
         deletePalette(id)
     }
 
     deleteProject = (id) => {
-        this.props.deleteProject(id)
+        this.props.removeProject(id)
         deleteProject(id)
     }
 
     setPalette = (palette) => {
         let {color_one, color_two, color_three, color_four, color_five} = palette
-        this.props.setColors([{hexCode: color_one}, {hexCode: color_two}, {hexCode: color_three}, {hexCode: color_four}, {hexCode: color_five}])
+        this.props.getColors([{hexCode: color_one}, {hexCode: color_two}, {hexCode: color_three}, {hexCode: color_four}, {hexCode: color_five}])
     }
 
     render() {  
@@ -47,13 +47,13 @@ export class ProjectDisplay extends React.Component {
         const tiles = projects.map(project => {
             return (
                 <ProjectTile 
-                id ={project.id}
-                key={project.created_at}
-                name={project.name}
-                palettes={project.palettes}
-                deletePalette={this.deletePalette}
-                deleteProject={this.deleteProject}
-                setPalette={this.setPalette}
+                    id ={project.id}
+                    key={project.name}
+                    name={project.name}
+                    palettes={project.palettes}
+                    deletePalette={this.deletePalette}
+                    deleteProject={this.deleteProject}
+                    setPalette={this.setPalette}
                 />
                 )
             })
@@ -71,15 +71,15 @@ export const mapStateToProps = state => ({
     projects: state.projects,
     palettes: state.palettes,
     error: state.error,
-    isLoading: state.loading
+    loading: state.loading
 })
 
 export const mapDispatchToProps = dispatch => ({
     getProjects: projects => dispatch(getProjects(projects)),
     getPalettes: palettes => dispatch(getPalettes(palettes)),
-    deletePalette: id => dispatch(removePalette(id)),
-    deleteProject: id => dispatch(removeProject(id)),
-    setColors: colors => dispatch(getColors(colors)),
+    removePalette: id => dispatch(removePalette(id)),
+    removeProject: id => dispatch(removeProject(id)),
+    getColors: colors => dispatch(getColors(colors)),
     hasErrored: error => dispatch(hasErrored(error)),
     loadComplete: () => dispatch(loadComplete())
 })
