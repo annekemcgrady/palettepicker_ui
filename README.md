@@ -1,69 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Welcome to ColourRad
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+ColourRad is an application that allows a user to generate random colors, save them as a palette and assign them to a project. Upon generating the random colors, the user can "lock" any hues they like and continue generating at random until they have a full palette that they'd like to save. Great for gaining ideas for decorating a room, choosing an outfit or making art.
 
-### `npm start`
+## SetUp
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Clone down this repo `https://github.com/annekemcgrady/palettepicker_ui.git <name your directory>`.
+- Run `npm start`.
+- Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Get to pickin!
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Screen Grabs
+<img width="1433" alt="Screen Shot 2019-08-28 at 1 35 50 PM" src="https://user-images.githubusercontent.com/47507801/63887033-1c179e80-c999-11e9-9762-ac8b6cd32bfb.png">
+<img src="https://github.com/annekemcgrady/palettepicker_ui/blob/master/ColourRad-demo.gif">
 
-### `npm test`
+## Tech Emphasis
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. React
+1. Redux
+1. Fetch APIs
+1. JSX
+1. SASS
+1. Tested with Jest & Enzyme
+1. Integrated with a backend designed and built by us: https://github.com/annekemcgrady/palettepicker_db.
 
-### `npm run build`
+## Future Iterations
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Create a mobile version with React Native.
+1. Implement routes for viewing projects.
+1. Add a search function.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Collaborators:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Enjoy!
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# palettepicker_ui
+- Anneke McGrady => [GitHub Projects](https://github.com/annekemcgrady?tab=repositories)
+- Taylor Noel Jordan => [GitHub Projects](https://github.com/TaylorNoelJordan?tab=repositories)
