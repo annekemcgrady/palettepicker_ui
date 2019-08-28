@@ -21,17 +21,6 @@ export class ProjectDisplay extends React.Component {
 
     }
 
-    // componentWillReceiveProps(props) {
-
-    //         fetchProjects()
-    //         .then(projects => props.getProjects(projects))
-    //         .then(() => fetchAllPalettes())
-    //         .then(palettes => props.getPalettes(palettes))
-    //         .then(() => props.loadComplete())
-    //         .catch(error => props.hasErrored(error))
-    //     }
-    
-
 
     deletePalette = (id) => {
         this.props.deletePalette(id)
