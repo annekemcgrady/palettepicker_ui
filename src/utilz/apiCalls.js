@@ -23,7 +23,7 @@ export const fetchPalettes = async project => {
             throw new Error('Palettes failed to fetch')
         }
         const palettes = await response.json();
-        console.log(palettes)
+
         return palettes;
     } catch ({ message }) {
         throw new Error(message)
@@ -72,7 +72,7 @@ export const postPalette = async (palette) => {
             body: JSON.stringify(palette)
         }
         const response = await fetch(url, options)
-        console.log(response)
+
         const addedPalette = response.json()
 
         return addedPalette;
@@ -124,8 +124,8 @@ export const deleteProject = async (id) => {
     try {
         const url = `${path}/projects/${id}`
         const response = await fetch(url, options)
-
-        return response;
+        
+        return response.json();
     } catch ({ message }) {
         throw new Error(message)
     }
@@ -138,8 +138,8 @@ export const deletePalette = async (id) => {
     try {
         const url = `${path}/palettes/${id}`
         const response = await fetch(url, options)
-
-        return response;
+        
+        return response.json();
     } catch ({ message }) {
         throw new Error(message)
     }

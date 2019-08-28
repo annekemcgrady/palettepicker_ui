@@ -5,16 +5,19 @@ import { shallow } from 'enzyme';
 import { isMainThread } from 'worker_threads';
 
 
-describe('ProjectDisplay', () => {
+describe.skip('ProjectDisplay', () => {
   let wrapper;
   let instance;
   let props;
 
-  it.skip('should match the snapshot', ()=>{
 
+  beforeEach(() => {
+    wrapper = shallow(<ProjectDisplay />)
+  });
+
+
+  it('should match the snapshot', () => {
+    expect(wrapper).toMatchSnapshot()
   })
-
-
-
 
 })

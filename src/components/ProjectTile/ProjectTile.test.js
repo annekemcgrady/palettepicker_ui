@@ -3,14 +3,19 @@ import ProjectTile from './ProjectTile';
 import { shallow } from 'enzyme';
 
 
-describe('ProjectTile', () => {
+describe.skip('ProjectTile', () => {
   let wrapper;
   let instance;
   let props;
 
-  it('should match the snapshot', ()=>{
 
+  beforeEach(() => {
+    wrapper = shallow(<ProjectTile />)
   })
+
+  it('should match the snapshot', () => {
+    expect(wrapper).toMatchSnapshot()
+
 
 
 })
