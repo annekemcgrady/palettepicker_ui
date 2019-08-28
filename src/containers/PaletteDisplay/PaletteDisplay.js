@@ -14,7 +14,7 @@ export class PaletteDisplay extends Component {
     }
 }
     generateColors = () => {
-        let randomHue = Math.floor(Math.random() * 10000 + 1);
+        let randomHue = Math.floor(Math.random() * 1000 + 1);
         let scheme = new ColorScheme();
         scheme
         .from_hue(randomHue)

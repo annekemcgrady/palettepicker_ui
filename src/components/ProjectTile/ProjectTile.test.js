@@ -8,13 +8,14 @@ describe('ProjectTile', () => {
   let instance;
   let props;
 
+
   beforeEach(() => {
     wrapper = shallow(<ProjectTile />)
   })
 
   it.skip('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot()
-  })
+
 
 
 })

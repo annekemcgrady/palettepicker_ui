@@ -2,12 +2,14 @@ import React from 'react';
 import { ProjectDisplay, mapStateToProps, mapDispatchToProps} from './ProjectDisplay';
 import { getProjects, getPalettes, removePalette, removeProject, getColors, hasErrored, loadComplete } from '../../actions';
 import { shallow } from 'enzyme';
+import { isMainThread } from 'worker_threads';
 
 
 describe('ProjectDisplay', () => {
   let wrapper;
   let instance;
   let props;
+
 
   beforeEach(() => {
     props = {
@@ -27,6 +29,7 @@ describe('ProjectDisplay', () => {
     wrapper = shallow(<ProjectDisplay {...props}/>)
     instance = wrapper.instance()
   });
+
 
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot()
