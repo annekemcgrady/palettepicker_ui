@@ -8,13 +8,8 @@ ColourRad is an application that allows a user to generate random colors, save t
 
 Clone down this repo `https://github.com/annekemcgrady/palettepicker_ui.git <name your directory>`.
 Run `npm start`.
-Get to pickin!
-
-Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Get to pickin!
 
 ## Screen Grabs
 <img width="1433" alt="Screen Shot 2019-08-28 at 1 35 50 PM" src="https://user-images.githubusercontent.com/47507801/63887033-1c179e80-c999-11e9-9762-ac8b6cd32bfb.png">
