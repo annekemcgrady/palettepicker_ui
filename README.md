@@ -36,8 +36,9 @@ You will also see any lint errors in the console.
 1. Implement routes for viewing projects.
 1. Add a search function.
 
+### Collaborators:
+
 Enjoy!
 
-### Collaborators:
 Anneke McGrady => [GitHub Projects](https://github.com/annekemcgrady?tab=repositories)
 Taylor Noel Jordan => [GitHub Projects](https://github.com/TaylorNoelJordan?tab=repositories)
