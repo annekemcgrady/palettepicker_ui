@@ -8,22 +8,42 @@ export class ProjectForm extends React.Component {
     constructor() {
         super();
         this.state = {
-            name: ''
+            name: '',
+            error: ''
         }
     }
 
     handleChange = e => {
         this.setState({[e.target.name]: e.target.value});
+        this.setState({error: ''})
     }
 
     handleSubmit = e => {
         e.preventDefault();
-        const newProject = {...this.state}
-        postProject(newProject)
-        .then(()=> fetchProjects())
-        .then(projects => this.props.getProjects(projects))
-        .catch(error => this.props.hasErrored(error))
-        this.clearInputs()
+        let newProject = {name: this.state.name}
+
+       const projectNameUsed = this.verifyUniqueName()
+
+        if(projectNameUsed) {
+            this.clearInputs()
+            this.setState({error: 'This project name exists'})
+        
+        } else {
+            postProject(newProject)
+            .then(()=> fetchProjects())
+            .then(projects => this.props.getProjects(projects))
+            .catch(error => this.props.hasErrored(error))
+            this.clearInputs()
+                // console.log("ELSE")
+  
+            } 
+    }
+
+    verifyUniqueName = () => {
+        const names = this.props.projects.map(project => {
+            return project.name.toUpperCase()
+        })
+        return  names.includes(this.state.name.toUpperCase())
     }
 
     clearInputs = () => {
@@ -32,6 +52,7 @@ export class ProjectForm extends React.Component {
 
     render() {
         return (
+            <>
             <form className='save-project-form'>
                 <input 
                     type='text' 
@@ -44,6 +65,8 @@ export class ProjectForm extends React.Component {
                 /> 
                 <button className='project-form-btn' onClick={e => this.handleSubmit(e)}>Add Project</button>               
             </form>
+                {this.state.error && <p>{this.state.error}</p>}
+                </>
         )
     }
 }

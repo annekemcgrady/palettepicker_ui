@@ -125,7 +125,7 @@ export const deleteProject = async (id) => {
         const url = `${path}/projects/${id}`
         const response = await fetch(url, options)
         
-        return response.json();
+        return response
     } catch ({ message }) {
         throw new Error(message)
     }
@@ -139,7 +139,7 @@ export const deletePalette = async (id) => {
         const url = `${path}/palettes/${id}`
         const response = await fetch(url, options)
         
-        return response.json();
+        return response
     } catch ({ message }) {
         throw new Error(message)
     }
