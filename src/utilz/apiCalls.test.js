@@ -10,6 +10,8 @@ import {
     fetchAllPalettes
 } from './apiCalls';
 
+const path = process.env.REACT_APP_BACKEND_URL
+
 describe('apiCalls', () => {
     describe('fetchProjects', () => {
         let mockProjects;
@@ -29,7 +31,7 @@ describe('apiCalls', () => {
         });
 
         it('should be called with the correct URL', () => {
-            const expected = `http://localhost:3000/api/v1/projects`
+            const expected = `${path}/projects`
             
             fetchProjects();
 
@@ -87,7 +89,7 @@ describe('apiCalls', () => {
         })
 
         it('should call fetch with correct url', async () => {
-            const expected = `http://localhost:3000/api/v1/projects/${mockProject.id}/palettes`;
+            const expected = `${path}/projects/${mockProject.id}/palettes`;
 
             await fetchPalettes(mockProject)
         
@@ -132,7 +134,7 @@ describe('apiCalls', () => {
         });
 
         it('should call fetch with correct url', async () => {
-            const expected = 'http://localhost:3000/api/v1/palettes';
+            const expected = `${path}/palettes`;
 
             await fetchAllPalettes();
 
@@ -176,7 +178,7 @@ describe('apiCalls', () => {
 
         it('should call fetch with correct parameters', () => {
             const expected = [
-                `http://localhost:3000/api/v1/projects`,
+                `${path}/projects`,
                 {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
@@ -226,7 +228,7 @@ describe('apiCalls', () => {
 
         it('should call fetch with correct parameters', () => {
             const expected = [
-                `http://localhost:3000/api/v1/palettes`,
+                `${path}/palettes`,
                 {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
@@ -275,7 +277,7 @@ describe('apiCalls', () => {
         });
 
         it('should call fetch with correct params', () => {
-            const expected = [`http://localhost:3000/api/v1/projects/${mockId}`,
+            const expected = [`${path}/projects/${mockId}`,
             {
                 method: 'PATCH',
                 headers: {'Content-Type': 'application/json'},
@@ -325,7 +327,7 @@ describe('apiCalls', () => {
         });
 
         it('should call fetch with correct params', () => {
-            const expected = [`http://localhost:3000/api/v1/palettes/${mockId}`,
+            const expected = [`${path}/palettes/${mockId}`,
             {
                 method: 'PATCH',
                 headers: {'Content-Type': 'application/json'},
@@ -372,7 +374,7 @@ describe('apiCalls', () => {
         });
 
         it('should call fetch with correct params', () => {
-            const expected = [`http://localhost:3000/api/v1/projects/${mockId}`,
+            const expected = [`${path}/projects/${mockId}`,
                 {
                  method: 'DELETE'
                 }
@@ -417,7 +419,7 @@ describe('apiCalls', () => {
         });
 
         it('should call fetch with correct params', () => {
-            const expected = [`http://localhost:3000/api/v1/palettes/${mockId}`,
+            const expected = [`${path}/palettes/${mockId}`,
                 {
                  method: 'DELETE'
                 }

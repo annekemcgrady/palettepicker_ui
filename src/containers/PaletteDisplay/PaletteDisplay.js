@@ -61,7 +61,6 @@ export class PaletteDisplay extends Component {
 
     return (
         <section className="palette-display">
-            <span className='palette-name'>{}</span>
             <div className='palette-tiles'>{displaySwatches}</div>
             <button
                 type="button"

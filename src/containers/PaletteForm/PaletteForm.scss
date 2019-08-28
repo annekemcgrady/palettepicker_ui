@@ -1,9 +1,16 @@
 .save-palette-form {
-    border:  1px black dotted;
+    align-items: center;
+    border:  1px #037255 dotted;
     border-radius: 15px;
     display: flex;
     justify-content: space-around;
     padding: 15px;
+}
+
+.palette-form-btn:hover {
+    color: hotpink;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 
@@ -15,6 +22,13 @@
     width: 150px;
 }
 
-.palette-form-label {
+.drop-down-menu {
+    border-radius: 15px;
+    font-size: 1em;
+    padding: 5px;
+    width: 150px;
+}
 
+.palette-form-label {
+    font-size: 1.3em;
 }
