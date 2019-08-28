@@ -31,8 +31,4 @@ describe('colorsReducer', () => {
     expect(result).toEqual(expected);
   })
 
-
-
-  
-
 })
