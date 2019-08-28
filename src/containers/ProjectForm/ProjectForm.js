@@ -34,8 +34,6 @@ export class ProjectForm extends React.Component {
             .then(projects => this.props.getProjects(projects))
             .catch(error => this.props.hasErrored(error))
             this.clearInputs()
-                // console.log("ELSE")
-  
             } 
     }
 

@@ -6,13 +6,15 @@ const ProjectTile = ({ name,id, palettes, deletePalette, deleteProject, setPalet
     const projectPalettes = palettes.map(palette => {
       
         return (
-            <article key={Date.now()} onClick={()=>setPalette(palette)} className='project-palette'>
+            <article key={Date.now()} className='full-palette'>
                 <p>{palette.name}</p>
+                <section onClick={()=>setPalette(palette)} className='project-palette'>
                 <div className='project-palette-div' style={{backgroundColor: palette.color_one}}></div>
                 <div className='project-palette-div' style={{backgroundColor: palette.color_two}}></div>
                 <div className='project-palette-div' style={{backgroundColor: palette.color_three}}></div>
                 <div className='project-palette-div' style={{backgroundColor: palette.color_four}}></div>
                 <div className='project-palette-div' style={{backgroundColor: palette.color_five}}></div>
+                </section>
                 <button className='project-palette-delete' onClick={()=> deletePalette(palette.id)}>Delete</button>
             </article>
         )

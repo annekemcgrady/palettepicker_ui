@@ -1,3 +1,16 @@
+
+
+.full-palette {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+p { 
+  width: 80px;
+  align-self: flex-start;
+}
+
 .project-tile {
   background-color:aliceblue;
   border: 1px dotted #037255;
@@ -9,20 +22,19 @@
 
 .project-palette {
   align-items: center;
+  justify-content: center;
   border: 1px solid #037255;
   border-radius: 5px;
   display: flex;
-  font-size: 1em;
-  justify-content: space-between;
-  margin: auto;
-  padding: 5px;
-  width: 90%;
+  margin: 10px;
+  width: 130px;
 }
 
 .project-palette-div {
   width: 20px;
   height: 20px;
   border: 1px solid black;
+  margin: 2px;
 }
 
 .project-palette-delete {

@@ -23,11 +23,13 @@ export class ProjectDisplay extends React.Component {
 
 
     deletePalette = (id) => {
+        console.log('DEL PALETTE')
         this.props.removePalette(id)
         deletePalette(id)
     }
 
     deleteProject = (id) => {
+        console.log('DEL PROJECT')
         this.props.removeProject(id)
         deleteProject(id)
     }
