@@ -6,7 +6,7 @@ const ProjectTile = ({ name,id, palettes, deletePalette, deleteProject, setPalet
     const projectPalettes = palettes.map(palette => {
       
         return (
-            <article onClick={()=>setPalette(palette)} className='project-palette'>
+            <article key={Date.now()} onClick={()=>setPalette(palette)} className='project-palette'>
                 <p>{palette.name}</p>
                 <div className='project-palette-div' style={{backgroundColor: palette.color_one}}></div>
                 <div className='project-palette-div' style={{backgroundColor: palette.color_two}}></div>

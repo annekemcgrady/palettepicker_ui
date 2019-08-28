@@ -28,6 +28,7 @@ export class PaletteForm extends React.Component {
             color_five: this.props.colors[4].hexCode,
             project_id: this.state.project
         }
+ 
         
         postPalette(newPalette)
         .then(() => fetchAllPalettes())

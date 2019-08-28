@@ -10,12 +10,16 @@ describe('ProjectTile', () => {
 
 
   beforeEach(() => {
-    wrapper = shallow(<ProjectTile />)
+    props = {
+      palettes: [{name: ''}]
+    }
+
+    wrapper = shallow(<ProjectTile {...props}/>)
   })
 
-  it.skip('should match the snapshot', () => {
+  it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot()
-
+  })
 
 
 })

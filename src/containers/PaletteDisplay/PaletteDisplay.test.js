@@ -4,16 +4,12 @@ import { getColors } from '../../actions';
 import { shallow } from 'enzyme';
 
 
-describe.skip('PaletteDisplay', () => {
+describe ('PaletteDisplay', () => {
   let wrapper;
   let instance;
   let props;
 
-  beforeEach(() => {
-    wrapper = shallow(<PaletteDisplay />)
-  });
-
-
+ 
   beforeEach(() => {
   props = {
     colors: [{hexCode:'#123457', isLocked: false}, {hexCode:'#123456', isLocked: false}, {hexCode:'#123456', isLocked: false}, {hexCode:'#123456', isLocked: false}, {hexCode:'#123456', isLocked: false}],
@@ -34,30 +30,11 @@ describe.skip('PaletteDisplay', () => {
   it.skip('should call generateColors when Generate New Colors button clicked', ()=> {
       
       instance.generateColors = jest.fn();
-      wrapper.find('.generate-new-palette-button').simulate('click')
-      expect(instance.generateColors).toHaveBeenCalled()
+      wrapper.find('.generate-new-palette-button').simulate('click', {})
+      expect(instance.generateColors).toBeCalled()
     })
 
-  it('should dispatch a setColors action with an array of five hexcodes', ()=> {
-
-  })
-
 })
-
- describe('lockColor', ()=> {
-
-  it('should call setColors with a new array of colors, ()=> {
-    let expected = [{hexCode:'#123457', isLocked: true}, {hexCode:'#123456', isLocked: false}, {hexCode:'#123456', isLocked: false}, {hexCode:'#123456', isLocked: false}, {hexCode:'#123456', isLocked: false}]
-    instance.lockColor('#123457')
-    const mockDispatch = jest.fn();
-    expect(mockDispatch).toHaveBeenCalledWith(expected)
-  })
-
-  it('should dispatch a setColors action with an array of five hexcodes', ()=> {
-
-  })
-
-  })
 
   describe('mapStateToProps', ()=> {
 
