@@ -1,10 +1,13 @@
 .palette-display {
+  align-content: center;
   background-color: aliceblue;
   display: flex;
   flex: 3;
   flex-direction: column;
-  height: 100vh;
-  justify-content: space-around;
+  min-height: 100vh;
+  justify-content: space-between;
+  padding: 15px;
+  transition: all 1.5s ease;
 }
 
 .palette-tiles {
@@ -13,7 +16,15 @@
 }
 
 .generate-new-palette-button {
-  width: 150px;
-  height: 40px;
-  align-self: center;
+  border-radius: 15px;
+  font-size: 1em;
+  margin: auto;
+  padding: 5px;
+  width: 200px;
+}
+
+.generate-new-palette-button:hover {
+  color: hotpink;
+  font-size: 1.2em;
+  font-weight: bold;
 }

@@ -1,7 +1,25 @@
 .save-project-form {
-    border:  1px black dotted;
+    border:  1px #037255 dotted;
     border-radius: 15px;
     display: flex;
     justify-content: space-around;
     padding: 15px;
+}
+
+.project-form-input {
+    border-radius: 15px;
+    font-size: .8em;
+    padding: 5px;
+    width: 150px;
+}
+
+.project-form-btn {
+    border-radius: 15px;
+    margin: 5px;
+}
+
+.project-form-btn:hover {
+    color: hotpink;
+    font-weight: bold;
+    font-size: .7em;
 }

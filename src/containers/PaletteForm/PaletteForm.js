@@ -50,7 +50,7 @@ export class PaletteForm extends React.Component {
         return (
             <form className='save-palette-form'>
                 <label htmlFor='name' className='palette-form-label'>Ready to save this palette?</label>
-                <select name='project' value={this.state.project} onChange={this.handleChange}>
+                <select className='drop-down-menu' name='project' value={this.state.project} onChange={this.handleChange}>
                     <option value='' key={Date.now()}>Select a Project</option>
                     {dropDownMenu}
                 </select>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './PaletteTile.scss'
+// import './PaletteTile.scss'
 import locked from '../../images/locked.png'
 import unlocked from '../../images/unlocked.png'
 
@@ -10,6 +10,7 @@ const PaletteTile = ({ isLocked, hexCode, id, lockColor}) => {
         color: 'black',
         backgroundColor: hexCode,
         height: '350px',
+        marginTop: '50px',
         width: '200px',
         transition: 'all 1.5s ease',
         border: '1px solid black'

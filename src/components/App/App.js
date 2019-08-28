@@ -2,7 +2,6 @@ import React from 'react';
 import './App.scss';
 import ProjectDisplay from '../ProjectDisplay/ProjectDisplay';
 import PaletteDisplay from '../../containers/PaletteDisplay/PaletteDisplay';
-// import PaletteForm from '../../containers/PaletteForm/PaletteForm';
 
 
 const App = () => {
@@ -10,7 +9,6 @@ const App = () => {
     <div className="App">
       <ProjectDisplay />
       <PaletteDisplay />
-      {/* <PaletteForm /> */}
     </div>
   );
 

@@ -1,16 +1,22 @@
 .project-tile {
-  width: 90%;
   background-color:aliceblue;
-  border: 1px solid black;
+  border: 1px dotted #037255;
   border-radius: 5px;
-  margin: 5px;
+  margin: 8px;
+  padding: 5px;
+  width: 90%;
 }
 
 .project-palette {
-  font-size: 1em;
+  align-items: center;
+  border: 1px solid #037255;
+  border-radius: 5px;
   display: flex;
+  font-size: 1em;
+  justify-content: space-between;
+  margin: auto;
+  padding: 5px;
   width: 90%;
-  border: 1px solid black;
 }
 
 .project-palette-div {
@@ -20,6 +26,25 @@
 }
 
 .project-palette-delete {
-  width: 40px;
   height: 20px;
+  width: 40px;
+}
+
+.project-delete:hover,
+.project-palette-delete:hover {
+  color: hotpink;
+  font-weight: bold;
+}
+
+.project-delete:hover {
+  font-size: 1.2em;
+  padding: 8px;
+}
+
+.project-delete {
+  border-radius: 15px;
+  font-size: 1em;
+  padding: 5px;
+  margin: 5px;
+  width: 150px;
 }
