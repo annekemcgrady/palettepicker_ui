@@ -10,16 +10,16 @@ describe('palettesReducer', () => {
   })
 
   it('should return the array of palettes', () => {
-    const addPalettesAction= {
+    const getPalettesAction= {
       type: "GET_PALETTES",
       palettes: [{hexCode: '#234red'}]
     }
     const expected = [{hexCode: '#234red'}];
-    const result = palettesReducer([], addPalettesAction);
+    const result = palettesReducer([], getPalettesAction);
     expect(result).toEqual(expected);
   })
 
-  it('should return the array of palettes', () => {
+  it('should add a new palette & return the array of palettes', () => {
     
     const addPaletteAction= {
       type: "ADD_PALETTE",
