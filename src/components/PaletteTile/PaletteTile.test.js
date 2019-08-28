@@ -5,17 +5,24 @@ import { shallow } from 'enzyme';
 
 describe.skip('PaletteTile', () => {
   let wrapper;
-  let instance;
   let props;
 
   beforeEach(() => {
-    wrapper = shallow(<PaletteTile />)
-  })
-  it('should match a snapshot', () => {
-    expect(wrapper).toMatchSnapshot()
+
+    props = {
+      isLocked:false,
+      hexCode: '#123ABC',
+      id: '#123ABC',
+      lockColor: jest.fn()
+    };
+  
+    wrapper = shallow(<PaletteTile{...props}/>);
   })
 
 
+  it('should match the snapshot', ()=> {
+    expect(wrapper).toMatchSnapshot();
+  })
 
 
 })
