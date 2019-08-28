@@ -18,7 +18,7 @@ You will also see any lint errors in the console.
 
 ## Screen Grabs
 <img width="1433" alt="Screen Shot 2019-08-28 at 1 35 50 PM" src="https://user-images.githubusercontent.com/47507801/63887033-1c179e80-c999-11e9-9762-ac8b6cd32bfb.png">
-ColourRad-demo.gif
+<img src="https://github.com/annekemcgrady/palettepicker_ui/blob/master/ColourRad-demo.gif">
 
 ## Tech Emphasis
 
@@ -35,3 +35,9 @@ ColourRad-demo.gif
 1. Create a mobile version with React Native.
 1. Implement routes for viewing projects.
 1. Add a search function.
+
+Enjoy!
+
+### Collaborators:
+Anneke McGrady => [GitHub Projects](https://github.com/annekemcgrady?tab=repositories)
+Taylor Noel Jordan => [GitHub Projects](https://github.com/TaylorNoelJordan?tab=repositories)
