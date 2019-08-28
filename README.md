@@ -35,5 +35,5 @@ ColourRad is an application that allows a user to generate random colors, save t
 
 Enjoy!
 
-Anneke McGrady => [GitHub Projects](https://github.com/annekemcgrady?tab=repositories)
-Taylor Noel Jordan => [GitHub Projects](https://github.com/TaylorNoelJordan?tab=repositories)
+- Anneke McGrady => [GitHub Projects](https://github.com/annekemcgrady?tab=repositories)
+- Taylor Noel Jordan => [GitHub Projects](https://github.com/TaylorNoelJordan?tab=repositories)
