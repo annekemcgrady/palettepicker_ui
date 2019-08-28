@@ -69,12 +69,12 @@ describe('PaletteForm', () => {
     });
 
     it('should reset state when clearInputs is called', () => {
-        const expected = { name: ''}
+        const expected = ''
 
         instance.setState({ name: 'Golden Hour' })
         instance.clearInputs();
 
-        expect(wrapper.state()).toEqual(expected)
+        expect(wrapper.state('name')).toEqual(expected)
     });
 
     describe('mapStateToProps', () => {

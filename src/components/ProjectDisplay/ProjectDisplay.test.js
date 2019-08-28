@@ -4,12 +4,17 @@ import { getProjects, getPalettes, hasErrored, loadComplete, removePalette } fro
 import { shallow } from 'enzyme';
 
 
-describe('ProjectDisplay', () => {
+describe.skip('ProjectDisplay', () => {
   let wrapper;
   let instance;
   let props;
 
+  beforeEach(() => {
+    wrapper = shallow(<ProjectDisplay />)
+  });
 
-
+  it('should match the snapshot', () => {
+    expect(wrapper).toMatchSnapshot()
+  })
 
 })
