@@ -3,11 +3,12 @@ import PaletteTile from './PaletteTile';
 import { shallow } from 'enzyme';
 
 
-describe.skip('PaletteTile', () => {
+describe('PaletteTile', () => {
   let wrapper;
   let props;
 
   beforeEach(() => {
+
 
     props = {
       isLocked:false,
@@ -23,6 +24,7 @@ describe.skip('PaletteTile', () => {
   it('should match the snapshot', ()=> {
     expect(wrapper).toMatchSnapshot();
   })
+
 
 
 })
